@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="rdo_scanner_view.ScannerController">
+            <div class="rdo-background-image d-flex justify-content-center align-items-center">
+                <div class="rdo-card">
+                    <h1 class="py-4 text-center mb-4 wellcome-text">Barcode scanner</h1>
+                    <CustomBarcodeScanner onBarcodeScanned="onBarcodeScanned"/>
+                    <h1 id="scanned_value" class="scanned-value" style="min-height: 50px;"></h1>
+                    <!-- <div class="btn btn-primary selection-button" id="manualSelectionBtn" style="margin-top: 80px;" t-on-click="showModal">Barcode Reader</div> -->
+                    <p class="text-grey fs-1 text-center pt-5" style="width: 320px;">Tap to scan BAR/QR code with your camera</p>
+                    
+                    <div class="modal" id="modal" tabindex="-1" style="display: none;">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title">Barcode Reader</h1>
+                                    <button type="button" class="btn-close" aria-label="Close" t-on-click="hideModal"></button>
+                                </div>
+                                <div class="modal-body justify-content-center">
+                                    <input id="customInput" class="custom-input" type="text" autocapitalize="off" autocomplete="off"/>
+                                    <p class="mt-4 text-center">Use scanner to automatically fill the input field</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" t-on-click="handleSaveChanges">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </t>
+</templates>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="rdo_equipment_scanner.equipment_form_inherit" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='serial_no']" position="replace">
+                <label for="serial_no"/>
+                <div class="o_row">
+                    <field name="serial_no" nolabel="1" class="oe_inline" style="width: 170%;"/>
+                    <button name="%(rdo_scanner_view.action_scanner_wizard_view)d"
+                            type="action"
+                            context="{'default_res_model': 'maintenance.equipment',
+                                      'default_res_id': active_id,
+                                      'default_res_field': 'serial_no'}"
+                            class="btn btn-primary">
+                        Scan!
+                    </button>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
